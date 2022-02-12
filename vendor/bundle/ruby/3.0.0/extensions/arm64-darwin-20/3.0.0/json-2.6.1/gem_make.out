@@ -1,0 +1,13 @@
+current directory: /Users/tim/projects/rn/lessen/vendor/bundle/ruby/3.0.0/gems/json-2.6.1/ext/json
+/Users/tim/.rvm/rubies/ruby-3.0.0/bin/ruby -I /Users/tim/.rvm/rubies/ruby-3.0.0/lib/ruby/site_ruby/3.0.0 -r ./siteconf20220211-16844-dfm1hd.rb extconf.rb
+creating Makefile
+
+current directory: /Users/tim/projects/rn/lessen/vendor/bundle/ruby/3.0.0/gems/json-2.6.1/ext/json
+make DESTDIR\= clean
+
+current directory: /Users/tim/projects/rn/lessen/vendor/bundle/ruby/3.0.0/gems/json-2.6.1/ext/json
+make DESTDIR\=
+make: Nothing to be done for `all'.
+
+current directory: /Users/tim/projects/rn/lessen/vendor/bundle/ruby/3.0.0/gems/json-2.6.1/ext/json
+make DESTDIR\= install
