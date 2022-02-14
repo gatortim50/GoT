@@ -16,13 +16,18 @@ const SearchScreen = ({ navigation }) => {
 
   const submitForm = () => {
     setAnimating(true);
-    console.log('searching: ', value);
+    // console.log('searching: ', value);
     GetResults(value).then((response) => {
       if (response.data) {
         setAnimating(false);
       }
+
       onChangeText('');
       console.log('list: ', response.data);
+      if (!Array.isArray(response.data)) {
+        response.data = [response.data];
+      }
+      console.log('number of items: ', response.data.length);
       navigation.navigate('Results', { results: [response.data] });
     });
   };
