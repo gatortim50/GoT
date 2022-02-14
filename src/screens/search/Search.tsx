@@ -23,7 +23,7 @@ const SearchScreen = ({ navigation }) => {
       }
       onChangeText('');
       console.log('list: ', response.data);
-      navigation.navigate('Results', { results: response.data });
+      navigation.navigate('Results', { results: [response.data] });
     });
   };
 

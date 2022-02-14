@@ -32,11 +32,6 @@ const ResultsScreen = ({ route, navigation }) => {
 
   return (
     <View style={styles.container}>
-      <View style={styles.sortContainer}>
-        <View style={styles.sortButtonContainer}>
-          <Button onPress={sortFav} title={'Sort By favorite'} />
-        </View>
-      </View>
       {displayList && (
         <FlatList
           data={displayList}
@@ -44,7 +39,7 @@ const ResultsScreen = ({ route, navigation }) => {
             <View style={styles.container}>
               <View style={styles.rateContainer}>
                 <Text style={styles.thumbsUp}>
-                  {item.thumbs_up}
+                  {item.name}
                   {icon && (
                     <FontAwesomeIcon
                       style={styles.buttonIcon}
@@ -53,10 +48,6 @@ const ResultsScreen = ({ route, navigation }) => {
                     />
                   )}
                 </Text>
-              </View>
-
-              <View style={styles.resultsContainer}>
-                <Text style={styles.defText}>{item.name}</Text>
               </View>
             </View>
           )}

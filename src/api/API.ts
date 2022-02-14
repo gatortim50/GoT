@@ -3,7 +3,7 @@ import axios from 'axios';
 export default async function GetResults(name: string) {
   const URL = `https://anapioficeandfire.com/api/characters/`;
   try {
-    const response = await axios.get(
+    let response = await axios.get(
       `${URL}${name}`,
       {}
     );
