@@ -8,7 +8,7 @@ import styles from './styles';
 const ResultsScreen = ({ route, navigation }) => {
   const [displayList, setDisplayList] = useState(route.params.results);
   const [fav, setFav] = useState(false);
-  // console.log('displayList: ', displayList);
+  console.log('displayList from route params: ', displayList);
 
   let icon = true;
 
@@ -21,29 +21,41 @@ const ResultsScreen = ({ route, navigation }) => {
     console.log('favorite: ', fav);
   };
 
+  const Item = ({ title }) => (
+    <View style={styles.item}>
+      <Text style={styles.title}>{title}</Text>
+    </View>
+  );
+
+  const renderItem = ({ item }) => (
+    <Item title={item.name} />
+  );
+
+
   return (
     <View style={styles.container}>
       {displayList && (
         <FlatList
           data={displayList}
-          renderItem={({ item, index }) => (
-            <View style={styles.container}>
-              <TouchableOpacity style={styles.button} onPress={onFav}>
-                <View style={styles.rateContainer}>
-                  <Text style={styles.thumbsUp}>
-                    {item.name}
-                    {icon && (
-                      <FontAwesomeIcon
-                        style={styles.buttonIcon}
-                        icon={faHeart}
-                        size={12}
-                      />
-                    )}
-                  </Text>
-                </View>
-              </TouchableOpacity>
-            </View>
-          )}
+          renderItem={renderItem}
+          // renderItem={({ item, index }) => (
+          //   <View style={styles.container}>
+          //     <TouchableOpacity style={styles.button} onPress={onFav}>
+          //       <View style={styles.rateContainer}>
+          //         <Text style={styles.thumbsUp}>
+          //           {item.name}
+          //           {icon && (
+          //             <FontAwesomeIcon
+          //               style={styles.buttonIcon}
+          //               icon={faHeart}
+          //               size={12}
+          //             />
+          //           )}
+          //         </Text>
+          //       </View>
+          //     </TouchableOpacity>
+          //   </View>
+          // )}
           keyExtractor={(item, index) => index.toString()}
         />
       )}

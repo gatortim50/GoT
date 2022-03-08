@@ -28,7 +28,7 @@ const SearchScreen = ({ navigation }) => {
         response.data = [response.data];
       }
       console.log('number of items: ', response.data.length);
-      navigation.navigate('Results', { results: [response.data] });
+      navigation.navigate('Results', { results: response.data });
     });
   };
 
