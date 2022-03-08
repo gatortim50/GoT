@@ -6,7 +6,7 @@ import { Button } from '../../components';
 import styles from './styles';
 
 const ResultsScreen = ({ route, navigation }) => {
-  const [displayList, setDisplayList] = useState(route.params.results);
+  const [displayList, setDisplayList] = useState(route.params.results.filter((item) => item.name !== ''));
   const [fav, setFav] = useState(false);
   console.log('displayList from route params: ', displayList);
 
