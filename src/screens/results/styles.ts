@@ -16,15 +16,9 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     marginHorizontal: 5,
   },
-  item: {
-    backgroundColor: '#f9c2ff',
-    padding: 20,
-    marginVertical: 8,
-    marginHorizontal: 16,
-  },
   thumbsUp: {
     fontSize: 8,
-    marginLeft: 5,
+    marginRight: 5,
   },
   thumbsDown: {
     fontSize: 8,
@@ -34,10 +28,12 @@ const styles = StyleSheet.create({
     fontSize: 18,
   },
   item: {
-    backgroundColor: '#f9c2ff',
+    backgroundColor: 'lightblue',
+    borderColor: 'black',
     padding: 20,
     marginVertical: 8,
     marginHorizontal: 16,
+    borderRadius: 25,
   },
   defText: {
     fontSize: 12,
@@ -69,7 +65,7 @@ const styles = StyleSheet.create({
   },
   buttonIcon: {
     color: 'gold',
-    marginLeft: Sizes.Base / 2,
+    marginLeft: 20,
   },
 });
 

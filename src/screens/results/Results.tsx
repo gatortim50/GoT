@@ -6,9 +6,11 @@ import { Button } from '../../components';
 import styles from './styles';
 
 const ResultsScreen = ({ route, navigation }) => {
-  const [displayList, setDisplayList] = useState(route.params.results.filter((item) => item.name !== ''));
+  const [DATA, setDATA] = useState(
+    route.params.results.filter((item) => item.name !== '')
+  );
   const [fav, setFav] = useState(false);
-  console.log('displayList from route params: ', displayList);
+  console.log('DATA from route params: ', DATA);
 
   let icon = true;
 
@@ -18,44 +20,35 @@ const ResultsScreen = ({ route, navigation }) => {
 
   const onFav = () => {
     setFav(!fav);
-    console.log('favorite: ', fav);
   };
 
   const Item = ({ title }) => (
     <View style={styles.item}>
-      <Text style={styles.title}>{title}</Text>
+      <TouchableOpacity style={styles.button} onPress={onFav}>
+        <View style={styles.rateContainer}>
+          <Text style={styles.title}>{title}</Text>
+          <Text style={styles.thumbsUp}>
+            {fav && icon && (
+              <FontAwesomeIcon
+                style={styles.buttonIcon}
+                icon={faHeart}
+                size={28}
+              />
+            )}
+          </Text>
+        </View>
+      </TouchableOpacity>
     </View>
   );
 
-  const renderItem = ({ item }) => (
-    <Item title={item.name} />
-  );
-
+  const renderItem = ({ item }) => <Item title={item.name} />;
 
   return (
     <View style={styles.container}>
-      {displayList && (
+      {DATA && (
         <FlatList
-          data={displayList}
+          data={DATA}
           renderItem={renderItem}
-          // renderItem={({ item, index }) => (
-          //   <View style={styles.container}>
-          //     <TouchableOpacity style={styles.button} onPress={onFav}>
-          //       <View style={styles.rateContainer}>
-          //         <Text style={styles.thumbsUp}>
-          //           {item.name}
-          //           {icon && (
-          //             <FontAwesomeIcon
-          //               style={styles.buttonIcon}
-          //               icon={faHeart}
-          //               size={12}
-          //             />
-          //           )}
-          //         </Text>
-          //       </View>
-          //     </TouchableOpacity>
-          //   </View>
-          // )}
           keyExtractor={(item, index) => index.toString()}
         />
       )}

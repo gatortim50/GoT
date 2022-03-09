@@ -16,6 +16,5 @@ export enum Colors {
   ChartFill = '#00D0C8',
   ChartText = '#0A6577',
   Error = '#EB4869',
-  HeaderBackgroundOnboarding = '#FFFFFF',
   HeaderBackgroundDashboard = '#44444400',
 }

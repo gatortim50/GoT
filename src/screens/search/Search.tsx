@@ -4,7 +4,7 @@ import GetResults from '../../api/API';
 
 import styles from './styles';
 import { Button } from '../../components';
-import Images from '../../constants/images';
+import Logo from '../../assets/images/logo.svg';
 const URI = 'https://www.lessen.com/';
 import ModalWebView from '../common/ModalWebView';
 
@@ -43,14 +43,14 @@ const SearchScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <View style={styles.imageContainer}>
-        <Image style={styles.image} source={Images.logo} />
+        <Logo width={120} height={40} />
       </View>
 
-      <TextInput
-        style={{ height: 40, width: 120, borderColor: 'gray', borderWidth: 1 }}
-        onChangeText={(text) => onChangeText(text)}
-        value={value}
-      />
+      {/*<TextInput*/}
+      {/*  style={{ height: 40, width: 120, borderColor: 'gray', borderWidth: 1 }}*/}
+      {/*  onChangeText={(text) => onChangeText(text)}*/}
+      {/*  value={value}*/}
+      {/*/>*/}
 
       <View style={styles.buttonContainer}>
         <Button onPress={submitForm} title={'Search'} />
