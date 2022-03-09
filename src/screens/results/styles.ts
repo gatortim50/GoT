@@ -1,11 +1,11 @@
 import { StyleSheet } from 'react-native';
-import { Sizes } from '../../theme';
+import { Colors } from '../../theme';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: 'column',
-    backgroundColor: 'white',
+    backgroundColor: Colors.Background,
   },
   rateContainer: {
     flex: 1,
@@ -28,8 +28,8 @@ const styles = StyleSheet.create({
     fontSize: 18,
   },
   item: {
-    backgroundColor: 'lightblue',
-    borderColor: 'black',
+    backgroundColor: Colors.BackgroundLight,
+    borderColor: Colors.GradientDark,
     padding: 20,
     marginVertical: 8,
     marginHorizontal: 16,
@@ -57,6 +57,8 @@ const styles = StyleSheet.create({
   },
   resultsButtonContainer: {
     alignItems: 'center',
+    marginLeft: 10,
+    marginRight: 10,
   },
   button: {
     width: '100%',

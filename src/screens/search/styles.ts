@@ -1,12 +1,12 @@
 import { StyleSheet } from 'react-native';
-import { Sizes, RelativeSizes } from '../../theme';
+import { Colors } from '../../theme';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: 'column',
     alignItems: 'center',
-    backgroundColor: 'white',
+    backgroundColor: Colors.Background,
   },
   buttonContainer: {
     alignItems: 'center',
@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
   button: {
     width: '100%',
     borderWidth: 1,
-    borderColor: '#0000000B',
+    borderColor: Colors.GradientDark,
   },
   imageContainer: {
     alignItems: 'center',

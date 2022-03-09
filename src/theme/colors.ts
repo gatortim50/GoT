@@ -1,6 +1,6 @@
 export enum Colors {
   Background = '#FFFFFF',
-  HeaderBackgroundLight = '#EAEAEA',
+  BackgroundLight = '#EAEAEA',
   Primary = '#00BED5',
   ButtonText = '#FFFFFF',
   BodyText = '#3A4650',

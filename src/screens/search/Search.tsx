@@ -12,7 +12,7 @@ const SearchScreen = ({ navigation }) => {
   const [value, onChangeText] = useState('');
   const [animating, setAnimating] = useState(false);
   const [isModalVisible, setModalVisible] = useState(false);
-  const [appointment, setAppointment] = useState(false);
+  const [viewLessen, setViewLessen] = useState(false);
 
   const submitForm = () => {
     setAnimating(true);
@@ -23,27 +23,27 @@ const SearchScreen = ({ navigation }) => {
       }
 
       onChangeText('');
-      console.log('list: ', response.data);
+      // console.log('list: ', response.data);
       if (!Array.isArray(response.data)) {
         response.data = [response.data];
       }
-      console.log('number of items: ', response.data.length);
+      console.log('GoT Allstars: ', response.data.length);
       navigation.navigate('Results', { results: response.data });
     });
   };
 
   const submitWebView = () => {
     console.log('webview');
-    setAppointment(!appointment);
+    setViewLessen(!viewLessen);
     setModalVisible(!isModalVisible);
     console.log('set isModalVisible:', isModalVisible);
-    console.log('set appointment:', appointment);
+    console.log('set setViewLessen:', setViewLessen);
   };
 
   return (
     <View style={styles.container}>
       <View style={styles.imageContainer}>
-        <Logo width={120} height={40} />
+        <Logo width={180} height={60} />
       </View>
 
       {/*<TextInput*/}
@@ -55,7 +55,7 @@ const SearchScreen = ({ navigation }) => {
       <View style={styles.buttonContainer}>
         <Button onPress={submitForm} title={'Search'} />
       </View>
-      {appointment && <ModalWebView title={'Lessen'} URI_LINK={URI} />}
+      {viewLessen && <ModalWebView title={'Lessen'} URI_LINK={URI} />}
       <View style={styles.buttonContainer}>
         <Button onPress={submitWebView} title={'View Lessen'} />
       </View>
