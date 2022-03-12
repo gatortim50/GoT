@@ -11,32 +11,19 @@ interface IProps {
   updateFavs: Funtion;
 }
 
-const Favorite = ({ title, updateFavs }: IProps) => {
-  const [fav, setFav] = useState(false);
-  useEffect(() => {
-    console.log('useEffect fav: ', fav);
-  }, [fav]);
-
-  const onFav = () => {
-    // console.log(`fav value: ${fav} before calling setFav`);
-    let isFav = updateFavs(title);
-    console.log(`fav value: ${isFav} AFTER updateFavs`);
-    setFav(isFav);
-  };
+const Favorite = ({ title, updateFavs, isFavorited }: IProps) => {
 
   return (
-    <TouchableOpacity style={styles.button} onPress={onFav}>
+    <TouchableOpacity style={styles.button} onPress={() => updateFavs(title)}>
       <View style={styles.rateContainer}>
         <Text style={styles.title}>{title}</Text>
-        <Text style={styles.thumbsUp}>
-          {fav && (
+          {isFavorited && (
             <FontAwesomeIcon
               style={styles.buttonIcon}
               icon={faHeart}
               size={18}
             />
           )}
-        </Text>
       </View>
     </TouchableOpacity>
   );

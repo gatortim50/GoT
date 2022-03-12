@@ -9,6 +9,7 @@ const styles = StyleSheet.create({
   },
   rateContainer: {
     flex: 1,
+    alignItems: 'center',
     flexDirection: 'row',
   },
   sortContainer: {

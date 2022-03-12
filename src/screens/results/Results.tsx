@@ -26,7 +26,6 @@ const ResultsScreen = ({ route, navigation }) => {
   }, [favArray.length]);
 
   const updateFavs = (title) => {
-    let returnVal = false;
     if (favArray.includes(title)) {
       console.log('remove: ', title);
       for (let i = 0; i < favArray.length; i++) {
@@ -34,28 +33,27 @@ const ResultsScreen = ({ route, navigation }) => {
           favArray.splice(i, 1);
         }
       }
+      // const filteredFavorites = favArray.filter((favorite) => favorite.title !== title);
+      // setFavArray(filteredFavorites)
+      // setCounter(filteredFavorites.length);
       setCounter(favArray.length);
-      returnVal = false;
     } else {
       // verify number of favorites is <= max
       if (favArray.length >= MAX) {
         console.log(`Max favorites is ${MAX}`);
-        returnVal = false;
       } else {
         // if number of favorites is < max, add new fav
         console.log('add: ', title);
         favArray.push(title);
         setCounter(favArray.length);
-        returnVal = true;
       }
     }
     console.log(`fav list: ${favArray.length}`, favArray);
-    return returnVal;
   };
 
   const Item = ({ title }) => (
     <View style={styles.item}>
-      <Favorite title={title} updateFavs={updateFavs} />
+      <Favorite title={title} isFavorited={favArray.includes(title)} updateFavs={updateFavs} />
     </View>
   );
 
