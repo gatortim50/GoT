@@ -13,14 +13,14 @@ In case you never setup React Native dev environment on your PC, please, follow 
 
 After React Native setup for Android is completed and the simulator is up and running, run:
 ```shell
-yarn android:dev
+yarn android
 ```
 
 ### Running on Android
 
 After React Native setup for IOS is completed and the simulator is up and running, run:
 ```shell
-yarn ios:dev
+yarn ios
 ```
 
 ### Description

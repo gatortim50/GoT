@@ -8,34 +8,20 @@ import ResultsScreen from './Results';
 
 interface IProps {
   title: string;
-  itemId: number;
+  updateFavs: Funtion;
 }
 
-const Favorite = ({ title, itemId }: IProps) => {
+const Favorite = ({ title, updateFavs }: IProps) => {
   const [fav, setFav] = useState(false);
-  const [favArray, setFavArray] = useState([]);
-  const [counter, setCounter] = useState(0);
-
   useEffect(() => {
-    console.log(`change to ${counter}`);
-  }, [counter]);
-
-  let LEN = 0;
-  const MAX = 10;
-  let icon = true;
+    console.log('useEffect fav: ', fav);
+  }, [fav]);
 
   const onFav = () => {
-    setFav(!fav);
-    console.log(title);
-    if (favArray.includes(title)) {
-      console.log('TRUE contains:', title);
-      setCounter(counter - 1);
-    } else {
-      console.log('FALSE add:', title);
-      setFavArray(title);
-      setCounter(counter + 1);
-    }
-    // console.log(counter);
+    // console.log(`fav value: ${fav} before calling setFav`);
+    let isFav = updateFavs(title);
+    console.log(`fav value: ${isFav} AFTER updateFavs`);
+    setFav(isFav);
   };
 
   return (
@@ -43,7 +29,7 @@ const Favorite = ({ title, itemId }: IProps) => {
       <View style={styles.rateContainer}>
         <Text style={styles.title}>{title}</Text>
         <Text style={styles.thumbsUp}>
-          {fav && icon && (
+          {fav && (
             <FontAwesomeIcon
               style={styles.buttonIcon}
               icon={faHeart}

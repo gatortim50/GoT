@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text, FlatList, TouchableOpacity } from 'react-native';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
@@ -10,16 +10,52 @@ const ResultsScreen = ({ route, navigation }) => {
   const [DATA, setDATA] = useState(
     route.params.results.filter((item) => item.name !== '')
   );
-  const [fav, setFav] = useState(false);
-  console.log('DATA from route params: ', DATA);
+
+  // console.log('DATA from route params: ', DATA);
+  const [favArray, setFavArray] = useState([]);
+  const [counter, setCounter] = useState(0);
+  const MAX = 10;
+
 
   const submitForm = () => {
     navigation.goBack();
   };
 
+  useEffect(() => {
+    // console.log('number of favs: ', favArray.length);
+  }, [favArray.length]);
+
+  const updateFavs = (title) => {
+    let returnVal = false;
+    if (favArray.includes(title)) {
+      console.log('remove: ', title);
+      for (let i = 0; i < favArray.length; i++) {
+        if (favArray[i] === title) {
+          favArray.splice(i, 1);
+        }
+      }
+      setCounter(favArray.length);
+      returnVal = false;
+    } else {
+      // verify number of favorites is <= max
+      if (favArray.length >= MAX) {
+        console.log(`Max favorites is ${MAX}`);
+        returnVal = false;
+      } else {
+        // if number of favorites is < max, add new fav
+        console.log('add: ', title);
+        favArray.push(title);
+        setCounter(favArray.length);
+        returnVal = true;
+      }
+    }
+    console.log(`fav list: ${favArray.length}`, favArray);
+    return returnVal;
+  };
+
   const Item = ({ title }) => (
     <View style={styles.item}>
-      <Favorite title={title} />
+      <Favorite title={title} updateFavs={updateFavs} />
     </View>
   );
 
