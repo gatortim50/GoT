@@ -16,7 +16,6 @@ const ResultsScreen = ({ route, navigation }) => {
   const [counter, setCounter] = useState(0);
   const MAX = 10;
 
-
   const submitForm = () => {
     navigation.goBack();
   };
@@ -53,7 +52,11 @@ const ResultsScreen = ({ route, navigation }) => {
 
   const Item = ({ title }) => (
     <View style={styles.item}>
-      <Favorite title={title} isFavorited={favArray.includes(title)} updateFavs={updateFavs} />
+      <Favorite
+        title={title}
+        isFavorited={favArray.includes(title)}
+        updateFavs={updateFavs}
+      />
     </View>
   );
 
