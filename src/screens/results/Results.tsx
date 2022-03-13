@@ -20,10 +20,6 @@ const ResultsScreen = ({ route, navigation }) => {
     navigation.goBack();
   };
 
-  useEffect(() => {
-    // console.log('number of favs: ', favArray.length);
-  }, [favArray.length]);
-
   const updateFavs = (title) => {
     if (favArray.includes(title)) {
       console.log('remove: ', title);
@@ -47,7 +43,7 @@ const ResultsScreen = ({ route, navigation }) => {
         setCounter(favArray.length);
       }
     }
-    console.log(`fav list: ${favArray.length}`, favArray);
+    console.log(`favorites: ${favArray.length}`, favArray);
   };
 
   const Item = ({ title }) => (
