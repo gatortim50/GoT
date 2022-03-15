@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ActivityIndicator, Image, View, TextInput } from 'react-native';
+import { ActivityIndicator, View  } from 'react-native';
 import GetResults from '../../api/API';
 
 import styles from './styles';
@@ -16,7 +16,6 @@ const SearchScreen = ({ navigation }) => {
 
   const submitForm = () => {
     setAnimating(true);
-    // console.log('searching: ', value);
     GetResults(value).then((response) => {
       if (response.data) {
         setAnimating(false);
